@@ -1,0 +1,98 @@
+===================================================================
+Recommended Usage: ./simplecompile.sh > output.txt 2>&1
+===================================================================
+Mon Feb 10 07:32:04 PST 2020
+Linux uw1-320-10 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1+deb9u5 (2019-08-11) x86_64 GNU/Linux
+uid=1000467(ngang123) gid=2121000467(ngang123) groups=2121000467(ngang123),605559(lab-access)
+===================================================================
+*** compiling with clang++ to create an executable called myprogram
+===================================================================
+clang version 3.8.1-24 (tags/RELEASE_381/final)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+===================================================================
+*** running myprogram
+testGraph0DFS
+testGraph0BFS
+testGraph0Dijkstra
+Dijkstra(A) weights is [B:1][C:4]
+Dijkstra(A) previous is [B:A][C:B]
+testGraph0NotDirected
+Dijkstra(A) weights is [B:1][C:4]
+Dijkstra(A) previous is [B:A][C:B]
+testGraph1
+Test map2string
+testGraph2
+Dijkstra(A) weights is [B:0][C:0][D:0][E:0][F:0][G:0][H:0][I:0][J:0][K:0][L:0][M:0][N:0]
+Dijkstra(A) previous is [B:A][C:A][D:A][E:B][F:B][G:C][H:D][I:D][J:F][K:G][L:G][M:H][N:I]
+Dijkstra(O) weights is [P:5][Q:2][R:3][S:6][T:8][U:9]
+Dijkstra(O) previous is [P:O][Q:O][R:Q][S:R][T:S][U:S]
+testGraph3
+testGraph4
+Done!
+===================================================================
+*** running clang-tidy using options from .clang-tidy
+*** fix all warnings, modify .clang-tidy if necessary
+*** explain all changes to .clang-tidy in README
+LLVM (http://llvm.org/):
+  LLVM version 3.8.1
+  
+  Optimized build.
+  Built Jun  2 2017 (13:11:29).
+  Default target: x86_64-pc-linux-gnu
+  Host CPU: ivybridge
+19184 warnings generated.
+34101 warnings generated.
+44604 warnings generated.
+54757 warnings generated.
+/home/UDRIVE/ngang123/graph.cpp:24:2: warning: use range-based for loop instead [modernize-loop-convert]
+        for (int I = 0; I < Vertices.size(); I++) 
+        ^
+            (auto Temp : Vertices)
+/home/UDRIVE/ngang123/graph.cpp:27:3: warning: use range-based for loop instead [modernize-loop-convert]
+                for (int J = 0; J < Temp->Neighbors.size(); J++)
+                ^
+/home/UDRIVE/ngang123/graph.cpp:351:2: warning: use range-based for loop instead [modernize-loop-convert]
+        for (int I = 0; I < Vert->Neighbors.size(); I++) 
+        ^
+/home/UDRIVE/ngang123/graph.cpp:389:3: warning: use range-based for loop instead [modernize-loop-convert]
+                for (int I = 0; I < Temp->Neighbors.size(); I++)
+                ^
+Suppressed 54753 warnings (54753 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers.
+===================================================================
+*** ERROR clang-format is not available on this system
+===================================================================
+*** running valgrind to detect memory leaks
+==9704==     in use at exit: 0 bytes in 0 blocks
+===================================================================
+*** compiling with clang++ to checking for memory leaks
+===================================================================
+*** running myprogram with memory checking
+testGraph0DFS
+testGraph0BFS
+testGraph0Dijkstra
+Dijkstra(A) weights is [B:1][C:4]
+Dijkstra(A) previous is [B:A][C:B]
+testGraph0NotDirected
+Dijkstra(A) weights is [B:1][C:4]
+Dijkstra(A) previous is [B:A][C:B]
+testGraph1
+Test map2string
+testGraph2
+Dijkstra(A) weights is [B:0][C:0][D:0][E:0][F:0][G:0][H:0][I:0][J:0][K:0][L:0][M:0][N:0]
+Dijkstra(A) previous is [B:A][C:A][D:A][E:B][F:B][G:C][H:D][I:D][J:F][K:G][L:G][M:H][N:I]
+Dijkstra(O) weights is [P:5][Q:2][R:3][S:6][T:8][U:9]
+Dijkstra(O) previous is [P:O][Q:O][R:Q][S:R][T:S][U:S]
+testGraph3
+testGraph4
+Done!
+===================================================================
+*** using --analyze option for clang++ to detect issues
+===================================================================
+*** cleaning up, deleting myprogram, myprogram.dSYM and core
+===================================================================
+Mon Feb 10 07:32:36 PST 2020
+===================================================================
+./simplecompile.sh exiting with 0

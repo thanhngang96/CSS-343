@@ -1,0 +1,269 @@
+===================================================================
+Recommended Usage: ./simplecompile.sh > output.txt 2>&1
+===================================================================
+Mon Jan 27 10:29:43 PST 2020
+Linux uw1-320-03 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1+deb9u5 (2019-08-11) x86_64 GNU/Linux
+uid=1000467(ngang123) gid=2121000467(ngang123) groups=2121000467(ngang123),605559(lab-access)
+===================================================================
+*** compiling with clang++ to create an executable called myprogram
+===================================================================
+clang version 3.8.1-24 (tags/RELEASE_381/final)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+===================================================================
+*** running myprogram
+Starting testPisan01
+* Testing == and !=
+Ending testPisan01
+
+Starting testPisan02
+* Testing == and != with more detail
+Ending testPisan02
+
+Starting testPisan03
+* Testing traversal
+visitorSimple: avisitorSimple: cvisitorSimple: fvisitorSimple: gvisitorSimple: xVisual check B1:
+                x
+            g
+        f
+    c
+        a
+
+            ___________c____________            
+      _____a______            _____f______      
+   __N___      __N___      __N___      __g___   
+  N     N     N     N     N     N     N     x   
+
+Ending testPisan03
+
+Starting testSample01
+* Testing copy
+                    30
+                25
+                    19
+            8
+        7
+    4
+        1
+
+                        _______________________4________________________                        
+            ___________1____________                        ___________7____________            
+      _____N______            _____N______            _____N______            _____8______      
+   __N___      __N___      __N___      __N___      __N___      __N___      __N___      __25__   
+  N     N     N     N     N     N     N     N     N     N     N     N     N     N     19    30  
+
+* Testing rebalance
+            30
+        25
+            19
+    8
+            7
+        4
+            1
+
+      _____8______      
+   __4___      __25__   
+  1     7     19    30  
+
+* Testing remove
+            21
+        20
+            17
+    15
+                14
+            12
+                11
+        9
+                8
+            6
+                2
+
+            ___________15___________            
+      _____9______            _____20_____      
+   __6___      __12__      __17__      __21__   
+  2     8     11    14    N     N     N     N   
+
+            21
+        20
+            17
+    15
+                14
+            12
+        11
+                8
+            6
+                2
+
+            ___________15___________            
+      _____11_____            _____20_____      
+   __6___      __12__      __17__      __21__   
+  2     8     N     14    N     N     N     N   
+
+* Testing clear
+            30
+        25
+            19
+    8
+            7
+        4
+            1
+
+      _____8______      
+   __4___      __25__   
+  1     7     19    30  
+
+
+[__]
+Ending testSample01
+Done!
+sh: 1: pause: not found
+===================================================================
+*** running clang-tidy using options from .clang-tidy
+*** fix all warnings, modify .clang-tidy if necessary
+*** explain all changes to .clang-tidy in README
+LLVM (http://llvm.org/):
+  LLVM version 3.8.1
+  
+  Optimized build.
+  Built Jun  2 2017 (13:11:29).
+  Default target: x86_64-pc-linux-gnu
+  Host CPU: ivybridge
+18819 warnings generated.
+29169 warnings generated.
+/home/UDRIVE/ngang123/bsttest.cpp:40:23: warning: construction of 'SS' with static storage duration may throw an exception that cannot be caught [cert-err58-cpp]
+  static stringstream SS;
+                      ^
+/usr/lib/gcc/x86_64-linux-gnu/6.3.0/../../../../include/c++/6.3.0/sstream:690:7: note: possibly throwing constructor declared here
+      basic_stringstream(ios_base::openmode __m = ios_base::out | ios_base::in)
+      ^
+/home/UDRIVE/ngang123/bsttest.cpp:72:27: warning: construction of 'SS' with static storage duration may throw an exception that cannot be caught [cert-err58-cpp]
+stringstream TreeVisitor::SS;
+                          ^
+/usr/lib/gcc/x86_64-linux-gnu/6.3.0/../../../../include/c++/6.3.0/sstream:690:7: note: possibly throwing constructor declared here
+      basic_stringstream(ios_base::openmode __m = ios_base::out | ios_base::in)
+      ^
+Suppressed 29167 warnings (29167 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers.
+===================================================================
+*** ERROR clang-format is not available on this system
+===================================================================
+*** running valgrind to detect memory leaks
+==758==     in use at exit: 0 bytes in 0 blocks
+===================================================================
+*** compiling with clang++ to checking for memory leaks
+===================================================================
+*** running myprogram with memory checking
+Starting testPisan01
+* Testing == and !=
+Ending testPisan01
+
+Starting testPisan02
+* Testing == and != with more detail
+Ending testPisan02
+
+Starting testPisan03
+* Testing traversal
+visitorSimple: avisitorSimple: cvisitorSimple: fvisitorSimple: gvisitorSimple: xVisual check B1:
+                x
+            g
+        f
+    c
+        a
+
+            ___________c____________            
+      _____a______            _____f______      
+   __N___      __N___      __N___      __g___   
+  N     N     N     N     N     N     N     x   
+
+Ending testPisan03
+
+Starting testSample01
+* Testing copy
+                    30
+                25
+                    19
+            8
+        7
+    4
+        1
+
+                        _______________________4________________________                        
+            ___________1____________                        ___________7____________            
+      _____N______            _____N______            _____N______            _____8______      
+   __N___      __N___      __N___      __N___      __N___      __N___      __N___      __25__   
+  N     N     N     N     N     N     N     N     N     N     N     N     N     N     19    30  
+
+* Testing rebalance
+            30
+        25
+            19
+    8
+            7
+        4
+            1
+
+      _____8______      
+   __4___      __25__   
+  1     7     19    30  
+
+* Testing remove
+            21
+        20
+            17
+    15
+                14
+            12
+                11
+        9
+                8
+            6
+                2
+
+            ___________15___________            
+      _____9______            _____20_____      
+   __6___      __12__      __17__      __21__   
+  2     8     11    14    N     N     N     N   
+
+            21
+        20
+            17
+    15
+                14
+            12
+        11
+                8
+            6
+                2
+
+            ___________15___________            
+      _____11_____            _____20_____      
+   __6___      __12__      __17__      __21__   
+  2     8     N     14    N     N     N     N   
+
+* Testing clear
+            30
+        25
+            19
+    8
+            7
+        4
+            1
+
+      _____8______      
+   __4___      __25__   
+  1     7     19    30  
+
+
+[__]
+Ending testSample01
+Done!
+sh: 1: pause: not found
+===================================================================
+*** using --analyze option for clang++ to detect issues
+===================================================================
+*** cleaning up, deleting myprogram, myprogram.dSYM and core
+===================================================================
+Mon Jan 27 10:29:59 PST 2020
+===================================================================
+./simplecompile.sh exiting with 0

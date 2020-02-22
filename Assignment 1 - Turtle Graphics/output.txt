@@ -1,0 +1,64 @@
+===================================================================
+Recommended Usage: ./simplecompile.sh > output.txt 2>&1
+===================================================================
+Sat Jan 18 02:38:48 PST 2020
+Linux uw1-320-03 4.9.0-9-amd64 #1 SMP Debian 4.9.168-1+deb9u5 (2019-08-11) x86_64 GNU/Linux
+uid=1000467(ngang123) gid=2121000467(ngang123) groups=2121000467(ngang123),605559(lab-access)
+===================================================================
+*** compiling with clang++ to create an executable called myprogram
+===================================================================
+clang version 3.8.1-24 (tags/RELEASE_381/final)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+./turtleprogramtest.cpp:82:34: warning: unknown warning group '-Wself-assign-overloaded', ignored [-Wunknown-pragmas]
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+                                 ^
+1 warning generated.
+===================================================================
+*** running myprogram
+Completed testAll!
+Done!
+sh: 1: pause: not found
+===================================================================
+*** running clang-tidy using options from .clang-tidy
+LLVM (http://llvm.org/):
+  LLVM version 3.8.1
+  
+  Optimized build.
+  Built Jun  2 2017 (13:11:29).
+  Default target: x86_64-pc-linux-gnu
+  Host CPU: ivybridge
+4182 warnings generated.
+8394 warnings generated.
+12764 warnings generated.
+/home/UDRIVE/ngang123/turtleprogramtest.cpp:82:34: warning: unknown warning group '-Wself-assign-overloaded', ignored [clang-diagnostic-unknown-pragmas]
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+                                 ^
+Suppressed 12763 warnings (12763 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers.
+===================================================================
+*** ERROR clang-format is not available on this system
+===================================================================
+*** running valgrind to detect memory leaks
+*** Examine "definitely lost" 
+---> grep from valgrind found memory leak, setting exitcode to 111
+===================================================================
+*** compiling with clang++ to checking for memory leaks
+./turtleprogramtest.cpp:82:34: warning: unknown warning group '-Wself-assign-overloaded', ignored [-Wunknown-pragmas]
+#pragma clang diagnostic ignored "-Wself-assign-overloaded"
+                                 ^
+1 warning generated.
+===================================================================
+*** running myprogram with memory checking
+Completed testAll!
+Done!
+sh: 1: pause: not found
+===================================================================
+*** using --analyze option for clang++ to detect issues
+===================================================================
+*** cleaning up, deleting myprogram
+===================================================================
+Sat Jan 18 02:38:58 PST 2020
+===================================================================
+Exiting with 111
